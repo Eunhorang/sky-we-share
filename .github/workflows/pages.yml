@@ -1,0 +1,53 @@
+name: 그림전 갱신 및 배포
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 저장소 가져오기
+        uses: actions/checkout@v4
+
+      - name: 그림 목록 갱신
+        run: python3 tools/update_gallery.py
+
+      - name: 갱신된 목록 저장
+        run: |
+          if ! git diff --quiet -- gallery.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add gallery.json
+            git commit -m "chore: update gallery manifest"
+            git push
+          fi
+
+      - name: 공개 파일만 준비
+        run: python3 tools/stage_site.py
+
+      - name: GitHub Pages 설정
+        uses: actions/configure-pages@v5
+
+      - name: 배포 파일 업로드
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: GitHub Pages 배포
+        id: deployment
+        uses: actions/deploy-pages@v4

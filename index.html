@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eaf8ff">
+  <meta name="description" content="청량한 하늘빛 아래 이어진 가족의 순간을 담은 온라인 그림전, 하늘을 나눠 가진 우리.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="하늘을 나눠 가진 우리">
+  <meta property="og:description" content="푸른 날마다 다시 만나는 가족 그림전">
+  <meta property="og:image" content="https://eunhorang.github.io/sky-we-share/assets/gallery/sky-01.webp">
+  <meta property="og:url" content="https://eunhorang.github.io/sky-we-share/">
+  <title>하늘을 나눠 가진 우리 | 가족 그림전</title>
+  <link rel="icon" href="assets/cloud-mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/gallery/sky-01.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#gallery">그림 전시로 바로가기</a>
+
+  <header class="site-header" aria-label="사이트 머리말">
+    <a class="brand" href="#top" aria-label="전시 첫 화면으로 이동">
+      <img src="assets/cloud-mark.svg" width="34" height="34" alt="">
+      <span>하늘을 나눠 가진 우리</span>
+    </a>
+    <nav aria-label="주요 메뉴">
+      <a href="#about">전시 소개</a>
+      <a class="nav-cta" href="#gallery">그림 보기 <span id="nav-count">24</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="cloud cloud-one" aria-hidden="true"></div>
+      <div class="cloud cloud-two" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">FAMILY ILLUSTRATION EXHIBITION</p>
+        <h1 id="hero-title">하늘을 나눠 가진 우리</h1>
+        <p class="hero-lead">푸른 날마다 다시 만나는 가족 그림전</p>
+        <p class="hero-description">함께 웃었던 순간에는 늘 저마다의 하늘이 있었습니다. 마음 가는 순서대로 그림 사이를 천천히 걸어 보세요.</p>
+        <a class="primary-button" href="#gallery">그림 사이를 걷기 <span aria-hidden="true">↓</span></a>
+      </div>
+
+      <figure class="hero-artwork">
+        <img src="assets/gallery/sky-01.webp" width="1672" height="941" alt="눈부신 하늘과 초록 공원을 배경으로 함께 웃는 네 가족의 그림">
+        <figcaption>
+          <span>푸른 날의 첫 장면</span>
+          <span>01 / <span id="hero-count">24</span></span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="exhibition-note" id="about" aria-labelledby="about-title">
+      <div>
+        <p class="section-kicker">ABOUT THE EXHIBITION</p>
+        <h2 id="about-title">한 가지 분류 대신,<br>우리다운 흐름으로</h2>
+      </div>
+      <p>가족이 함께한 여행과 산책, 응원과 휴식의 장면을 정해진 순서 없이 펼쳤습니다. 가로와 세로, 가까운 얼굴과 넓은 풍경이 서로 다른 리듬으로 이어집니다.</p>
+    </section>
+
+    <section class="gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <div class="gallery-heading">
+        <div>
+          <p class="section-kicker">OPEN GALLERY</p>
+          <h2 id="gallery-title">오늘의 하늘빛 모음</h2>
+        </div>
+        <p><strong id="artwork-count">24</strong>개의 그림 · 자유 관람</p>
+      </div>
+      <div class="gallery-grid" id="gallery-grid" aria-live="polite" aria-busy="true"></div>
+      <noscript><p class="load-message">그림을 보려면 브라우저에서 자바스크립트를 켜 주세요.</p></noscript>
+    </section>
+
+    <section class="closing-note" aria-label="전시 마무리 글">
+      <p class="section-kicker">ONE SKY, MANY DAYS</p>
+      <p class="closing-quote">같은 하늘 아래서<br>우리는 서로의 계절이 되었습니다.</p>
+      <a href="#top">처음 하늘로 돌아가기 <span aria-hidden="true">↑</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <p>우리가 함께 바라본 푸른 날들을 한 장씩 모았습니다.</p>
+    <p>© Family Illustration Exhibition</p>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+    <div class="lightbox-shell">
+      <button class="icon-button close-button" type="button" aria-label="큰 그림 닫기">×</button>
+      <button class="icon-button previous-button" type="button" aria-label="이전 그림">←</button>
+      <figure>
+        <img id="lightbox-image" src="assets/gallery/sky-01.webp" alt="">
+        <figcaption id="lightbox-caption">
+          <span id="lightbox-alt"></span>
+          <span id="lightbox-counter"></span>
+        </figcaption>
+      </figure>
+      <button class="icon-button next-button" type="button" aria-label="다음 그림">→</button>
+    </div>
+  </dialog>
+</body>
+</html>
