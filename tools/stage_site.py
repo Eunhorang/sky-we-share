@@ -10,7 +10,7 @@ if OUT.exists():
     shutil.rmtree(OUT)
 OUT.mkdir()
 
-for name in ["index.html", "styles.css", "script.js", "gallery.json", ".nojekyll", "robots.txt", "sitemap.xml"]:
+for name in ["index.html", "styles.css", "script.js", "gallery.json", "site.webmanifest", ".nojekyll", "robots.txt", "sitemap.xml"]:
     shutil.copy2(ROOT / name, OUT / name)
 shutil.copytree(ROOT / "assets", OUT / "assets")
 print(f"staged: {OUT}")
